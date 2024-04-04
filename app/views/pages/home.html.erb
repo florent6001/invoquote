@@ -1,2 +1,95 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section class="bg-primary py-5 text-white">
+  <div class="container" data-aos="fade-in">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="display-5 fw-bold">
+          The tool you need to manage your business easily.
+        </h1>
+        <div class="col-lg-10">
+          <p class="lead mb-4 text-light-muted">
+            We help entrepreneurs and businesses owners to manage their operations efficiently.
+            With our tool, you can easily manage your clients,
+            generate invoices and quotes, track your payments, and much more.
+          </p>
+          <div class="d-grid gap-0 d-sm-flex align-items-center">
+            <%= link_to "Start now", new_user_registration_path, class: "btn btn-light btn-lg px-4 rounded" %>
+            <%= link_to "#features", class: 'btn btn-link text-white text-decoration-none' do %>
+            Discover all features <i class="fa fa-arrow-right"></i>
+            <% end -%>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <%= image_tag "dashboard.png", class: "w-100" %>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="features" class="container pt-5">
+  <p class="fs-5 text-primary fw-semibold">Features</p>
+  <h3 class="display-6 fw-bold mb-4">The main features of our tool.</h3>
+  <p class="w-50">
+    Discover the powerful features of InvoQuote that will make managing your self-business easier.
+  </p>
+  <div class="row g-5 py-5 row-cols-1 row-cols-lg-4" data-aos="fade-up">
+    <div class="col">
+      <div class="bg-primary p-3 text-white h-5 w-5 d-inline-block mb-4 rounded-3">
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <h3>Multi-company</h3>
+      <p>
+        Manage multiple businesses from a single account and keep everything under control.
+      </p>
+    </div>
+    <div class="col">
+      <div class="bg-primary p-3 text-white h-5 w-5 d-inline-block mb-4 rounded-3">
+        <i class="fa fa-users"></i>
+      </div>
+      <h3>Invoices and quotations</h3>
+      <p>
+        Generate professional quotes and track your invoice payments all in one place.
+      </p>
+    </div>
+    <div class="col">
+      <div class="bg-primary p-3 text-white h-5 w-5 d-inline-block mb-4 rounded-3">
+        <i class="fas fa-file-invoice"></i>
+      </div>
+      <h3>Calendar</h3>
+      <p>
+        Organize your appointments and important tasks using our integrated calendar.
+      </p>
+    </div>
+    <div class="col">
+      <div class="bg-primary p-3 text-white h-5 w-5 d-inline-block mb-4 rounded-3">
+        <i class="fas fa-clock"></i>
+      </div>
+      <h3>Reminders</h3>
+      <p>
+        Organize your appointments and important tasks using our integrated calendar.
+      </p>
+    </div>
+  </div>
+</section>
+<section id="about" class="bg-light py-5">
+  <div class="container">
+    <div class="row col-md-10 mx-auto bg-white p-5 rounded">
+      <div class="row" data-aos="fade-up">
+        <div class="col-md-6 col-12">
+          <h2 class="mb-5">
+            Why we created InvoQuote?
+          </h2>
+          <p class="lead">
+            Our main goal is to provide entrepreneurs and small businesses with a comprehensive tool to effectively manage their business operations. With advanced features, you can easily manage your customers, generate quotes and invoices, track your payments and much more
+          </p>
+          <p class="lead pt-3">
+            The InvoQuote tool is designed to simplify your work, allowing you to focus on what really matters: growing your business. Join us today and discover how our platform can help you save time and run your business successfully.
+          </p>
+        </div>
+        <div class="col-md-6 d-none d-md-block">
+          <img src="https://preview.uideck.com/items/play-bootstrap/assets/images/about/about-image.svg"
+            alt="about-image" class="w-100 d-block p-5 ms-auto text-end">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

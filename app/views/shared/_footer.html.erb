@@ -1,0 +1,51 @@
+<footer class="border-top">
+  <div class="bg-primary py-5 text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="w-md-75">
+            <%= link_to "InvoQuote", root_path, class: 'text-white fw-bold fs-4 text-decoration-none' %>
+            <p class="mt-2">
+              We streamline operations for entrepreneurs and business owners. Our tool handles client management, invoicing, quoting, payment tracking, and more.
+            </p>
+          </div>
+        </div>
+        <div class="offset-md-3 col-md-3">
+          <h4>Quick access</h4>
+          <ul>
+            <li>
+              <%= link_to "Homepage", root_path %>
+            </li>
+            <li>
+              <%= link_to "Create an account", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Log in", new_user_session_path %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Legal</h4>
+          <ul>
+            <li>
+              <%= link_to "Legal mentions", "#" %>
+            </li>
+            <li>
+              <%= link_to "Data Privacy Policies", "#" %>
+              données</a>
+            </li>
+            <li>
+              <%= link_to "Terms of use", "#" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row text-center mt-3">
+        <p>
+          Made with <i class="fa fa-heart text-danger"></i> by <a href="https://florent-vandroy.fr/">Florent
+          Vandroy</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
