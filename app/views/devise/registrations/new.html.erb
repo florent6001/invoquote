@@ -1,25 +1,61 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<section class="bg-primary py-5">
+  <div class="row">
+    <div class="col-md-10 mx-auto bg-white rounded">
+      <div class="row align-items-center">
+        <div class="col-md-6 col-12">
+          <div class="container p-5">
+            <h1 class="mb-5">Créer un compte</h1>
+              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <div class="row mb-3">
+                <div class="col-md-12">
+                  <%= f.error_notification %>
+                </div>
+                <div class="col-md-6">
+                  <label for="first_name">Prénom</label>
+                </div>
+                <div class="col-md-6">
+                  <label for="last_name">Nom de famille</label>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+                </div>
+              </div>
+              <div class="mb-3">
+                <%= f.input :terms_of_service,  as: :boolean, label: 'I accept terms' %>
+              </div>
+              <div class="row mb-0">
+                <div classm="col">
+                  <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <%= render "devise/shared/links" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 p-5">
+          <%= image_tag('sign_up.png', class: "img-fluid") %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
