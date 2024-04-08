@@ -1,0 +1,17 @@
+.nav-pills {
+  gap: 5px;
+}
+
+.nav-pills .nav-item a {
+  display: flex;
+  align-items: center;
+}
+
+.nav-pills .fas {
+  @extend .mx-3;
+  width: 10%;
+}
+
+.nav-pills .active {
+  @extend .bg-secondary;
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Invoquote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body class="bg-body">
+    <div class="d-flex">
+      <div class="collapse md-show d-lg-block" id="sidebar">
+        <div class="d-flex bg-primary shadow flex-column flex-shrink-0 p-3 min-vh-100 h-100" style="width: 280px;">
+          <%= link_to "Invoquote", root_path, class: "text-decoration-none text-white text-center fs-4 mt-3" %>
+          <ul class="nav nav-pills navbar-nav navbar-dark flex-column mb-auto mt-4">
+            <li class="nav-item">
+              <%= link_to root_path, class: "nav-link" do %>
+                <i class="fas fa-home"></i>
+                Tableau de bord
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to root_path, class: "nav-link" do %>
+                <i class="fas fa-users"></i>
+                Clients
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to root_path, class: "nav-link" do %>
+                <i class="fas fa-file"></i>
+                Devis
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to root_path, class: "nav-link" do %>
+                <i class="fas fa-file-invoice"></i>
+                Factures
+              <% end %>
+            </li>
+            <li class="nav-item mt-5">
+              <%= link_to root_path, class: "nav-link" do %>
+                <i class="fas fa-life-ring"></i>
+                Assistance
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-100">
+        <header>
+          <nav class="shadow shadow-sm navbar navbar-expand navbar-dark bg-primary">
+            <div class="container-fluid px-3">
+              <div class="collapse navbar-collapse" id="navbar">
+                <button class="d-block d-lg-none navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"></a>
+                <ul class="navbar-nav ms-auto navbar-light mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a href="" class="nav-link d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                      <p class="mx-2 my-0 dropdown-toggle">
+                        <strong>
+                          <%= current_user.full_name %>
+                        </strong>
+                      </p>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                      <li class="nav-item dropdown">
+                        <% current_user.businesses.each do |business| %>
+                          <li class="dropdown-item"><%= business.name %></li>
+                        <% end %>
+                        <% if current_user.businesses.empty? %>
+                          <%= link_to "You don't have company", new_business_path, class: "dropdown-item" %>
+                        <% end %>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                      </li>
+                      <li>
+                        <%= link_to "My businesses", businesses_path, class: "dropdown-item" %>
+                      </li>
+                      <li>
+                        <%= link_to "Account settings", edit_user_registration_path, class: "dropdown-item" %>
+                      </li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li>
+                        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <main>
+          <div class="m-5">
+            <%= yield %>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

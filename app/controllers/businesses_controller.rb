@@ -1,4 +1,5 @@
 class BusinessesController < ApplicationController
+  layout 'dashboard'
 
   def index
     @business = current_user.businesses

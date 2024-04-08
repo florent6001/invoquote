@@ -6,4 +6,8 @@ class User < ApplicationRecord
   validates :terms_of_service, acceptance: true
 
   has_many :businesses
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
