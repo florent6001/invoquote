@@ -8,6 +8,22 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Business.destroy_all
 User.destroy_all
 
-User.create(first_name: 'Florent', last_name: 'Vandroy', email: 'florentvandroy@gmail.com', password: 'password')
+User.create!(
+  first_name: 'Florent',
+  last_name: 'Vandroy',
+  email: 'florentvandroy@gmail.com',
+  password: 'password'
+)
+
+Business.create(
+  name: "WebDev",
+  address: "Bordeaux",
+  phone_number: "0606060606",
+  email: "professionnal_email@domain.com",
+  registration_number: "0987654321",
+  tax_rate: "2O",
+  user: User.first
+)

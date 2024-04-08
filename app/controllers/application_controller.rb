@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def check_if_user_have_business
-    redirect_to new_business_path, notice: "You need to have a company before continue" unless params[:controller] == 'pages' || params[:controller] == 'businesses' unless current_user.businesses.any?
+    if current_user && current_user.businesses.empty?
+      redirect_to new_business_path, notice: "You need to have a company before continue" unless params[:controller] == 'pages' || params[:controller] == 'businesses'
+    end
   end
 end
