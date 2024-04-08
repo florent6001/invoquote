@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  before_action :check_if_user_belongs_to_business
+  before_action :check_if_user_have_business
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -9,9 +9,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
   end
 
-  def check_if_user_belongs_to_business
-    if params[:controller] != "pages" && current_user.businesses.empty?
-      redirect_to root_path, notice: "You need to have at least one business to access this page."
-    end
+  def check_if_user_have_business
+    redirect_to new_business_path, notice: "You need to have a company before continue" unless params[:controller] == 'pages' || params[:controller] == 'businesses' unless current_user.businesses.any?
   end
 end

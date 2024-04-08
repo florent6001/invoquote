@@ -1,0 +1,21 @@
+<%= simple_form_for @business do |f| %>
+  <%= f.input :name %>
+  <%=f.input :address %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :email, input_html: { class: "col-md-6" } %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :phone_number, input_html: { class: "col-md-6" } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+    <%= f.input :registration_number %>
+    </div>
+    <div class="col-md-6">
+    <%= f.input :tax_rate, input_html: { value: "20" } %>
+    </div>
+  </div>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
